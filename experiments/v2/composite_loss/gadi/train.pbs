@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -N gnnsr_loss_train
+#PBS -q gpuvolta
+#PBS -l ncpus=12
+#PBS -l ngpus=1
+#PBS -l mem=32GB
+#PBS -l jobfs=2GB
+#PBS -l walltime=48:00:00
+#PBS -l wd
+#PBS -j oe
+set -euo pipefail
+LOSS_JOB_MODE=train
+source "${PBS_O_WORKDIR:?}/experiments/v2/composite_loss/gadi/job.sh"

@@ -1,0 +1,44 @@
+[paths]
+dataset_root = "../../../../reference_files/BurnettRV"
+aoi_path = "../../../../examples/recommended_development_aoi.geojson"
+output_dir = "../../../../outputs/v2/composite_loss/t0p1_l0p1"
+cache_dir = "../../../../cache/v2/composite_loss/t0p1_l0p1"
+
+[data]
+flow_area_name = "BurnettRV_region"
+tuflow_warmup_steps = 48
+hec_warmup_hours = 47.5
+dry_threshold_m = 0.03
+model_crs = "EPSG:28356"
+
+[graph]
+fine_grid_spacing_m = 20.0
+fine_spacing_tolerance_m = 0.05
+fine_halo_hops = 3
+coarse_halo_hops = 2
+
+[model]
+hidden_dim = 64
+coarse_layers = 2
+fine_layers = 3
+leaky_relu_slope = 0.01
+dropout = 0.0
+
+[training]
+fold = 1
+seed = 42
+learning_rate = 0.001
+weight_decay = 0.0
+max_epochs = 300
+early_stopping_patience = 30
+scheduler_patience = 10
+scheduler_factor = 0.5
+minimum_learning_rate = 0.00001
+gradient_clip_norm = 1.0
+device = "cuda"
+extend_epoch_cap_if_improving = true
+
+[loss]
+temperature_m = 0.1
+extent_weight = 0.1
+record_diagnostics = true
