@@ -1,0 +1,30 @@
+{
+  "type": "FeatureCollection",
+  "name": "recommended_development_aoi",
+  "crs": {
+    "type": "name",
+    "properties": {"name": "EPSG:28356"}
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "purpose": "Fold-1 development AOI",
+        "selection": "Static geometry and Groups 2-4 training summaries only",
+        "side_m": 1000,
+        "centre_x": 397815,
+        "centre_y": 7220055
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [397315.0, 7219555.0],
+          [398315.0, 7219555.0],
+          [398315.0, 7220555.0],
+          [397315.0, 7220555.0],
+          [397315.0, 7219555.0]
+        ]]
+      }
+    }
+  ]
+}

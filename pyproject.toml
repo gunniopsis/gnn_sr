@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "burnettrv-gnnsr"
+version = "0.1.0"
+description = "AOI-capable two-scale GNN super-resolution for Burnett River flood maps"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.24,<3",
+  "pandas>=2.0,<4",
+  "h5py>=3.9,<4",
+  "scipy>=1.10,<2",
+  "shapely>=2.0,<3",
+  "fiona>=1.9,<2",
+  "pyproj>=3.5,<4",
+  "torch>=2.2,<3",
+  "torch-geometric>=2.5,<3",
+]
+
+[project.scripts]
+gnnsr = "gnnsr.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
