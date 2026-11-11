@@ -65,8 +65,20 @@ def command_evaluate(args: argparse.Namespace) -> None:
     print(f"Event metrics: {metrics}")
 
 
+def command_evaluate_lsg(args: argparse.Namespace) -> None:
+    from .lsg import evaluate_lsg_aoi
+
+    config = _load_config(args.config)
+    metrics = evaluate_lsg_aoi(config)
+    print(f"LSG event metrics: {metrics}")
 
 
+def command_evaluate_hec(args: argparse.Namespace) -> None:
+    from .baseline import evaluate_hec_ras_aoi
+
+    config = _load_config(args.config)
+    metrics = evaluate_hec_ras_aoi(config)
+    print(f"HEC-RAS baseline event metrics: {metrics}")
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -105,6 +117,17 @@ def build_parser() -> argparse.ArgumentParser:
     evaluate_parser.add_argument("--no-save-predictions", action="store_true")
     evaluate_parser.set_defaults(handler=command_evaluate)
 
+    lsg_parser = subparsers.add_parser(
+        "evaluate-lsg", help="Evaluate the authors' full-domain LSG model on the AOI"
+    )
+    lsg_parser.add_argument("--config", required=True)
+    lsg_parser.set_defaults(handler=command_evaluate_lsg)
+
+    hec_parser = subparsers.add_parser(
+        "evaluate-hec", help="Evaluate parent-cell-projected HEC-RAS results on the AOI"
+    )
+    hec_parser.add_argument("--config", required=True)
+    hec_parser.set_defaults(handler=command_evaluate_hec)
     return parser
 
 

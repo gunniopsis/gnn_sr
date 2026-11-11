@@ -1,0 +1,28 @@
+{
+  "type": "FeatureCollection",
+  "name": "burnettrv_full_domain",
+  "crs": {
+    "type": "name",
+    "properties": {"name": "EPSG:28356"}
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "purpose": "Select every supplied Burnett River TUFLOW cell centre",
+        "selection": "Geometry only; 10 m buffer around the supplied centre-coordinate extent",
+        "expected_tuflow_cells": 780785
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [390295.0, 7195025.0],
+          [441495.0, 7195025.0],
+          [441495.0, 7269845.0],
+          [390295.0, 7269845.0],
+          [390295.0, 7195025.0]
+        ]]
+      }
+    }
+  ]
+}

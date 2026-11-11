@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "Please cite this software repository when using this implementation."
+title: "GNN-SR: Burnett River flood super-resolution"
+type: software
+version: 0.2.0
+repository-code: "https://github.com/gunniopsis/gnn_sr"
+authors:
+  - name: "GNN-SR contributors"
