@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import csv
 import gzip
+import hashlib
 import json
 import random
+import shutil
 import time
 from collections.abc import Sequence
 from contextlib import ExitStack
@@ -243,6 +245,23 @@ def _restore_random_state(checkpoint: dict) -> None:
         torch.cuda.set_rng_state_all([state.cpu() for state in cuda_states])
 
 
+def _archive_epoch_checkpoint(latest_path: Path, epoch: int) -> Path:
+    """Keep an atomic, complete copy of an epoch's resumable training state."""
+    directory = latest_path.parent / "checkpoints"
+    directory.mkdir(exist_ok=True)
+    destination = directory / f"epoch_{epoch:05d}.pt"
+    if destination.exists():
+        if hashlib.sha256(destination.read_bytes()).digest() != hashlib.sha256(
+            latest_path.read_bytes()
+        ).digest():
+            raise ValueError(f"Archived checkpoint differs from latest state: {destination}")
+        return destination
+    temporary = destination.with_suffix(".pt.tmp")
+    shutil.copyfile(latest_path, temporary)
+    temporary.replace(destination)
+    return destination
+
+
 def _validate_resume_checkpoint(config: ExperimentConfig, checkpoint: dict) -> None:
     _validate_checkpoint_compatibility(config, checkpoint)
     from .config import LossConfig
@@ -288,6 +307,7 @@ def train_model(
     force_graph: bool = False,
     resume: bool = False,
     segment_seconds: float | None = None,
+    save_epoch_checkpoints: bool = False,
 ) -> Path:
     if segment_seconds is not None and segment_seconds <= 0:
         raise ValueError("segment_seconds must be positive")
@@ -384,6 +404,9 @@ def train_model(
             bad_epochs = int(resume_checkpoint.get("bad_epochs", 0))
             epoch_limit = _restored_epoch_limit(config, epoch, bad_epochs)
             _restore_random_state(resume_checkpoint)
+            if save_epoch_checkpoints and resume_path == latest_path:
+                # Recover a copy interrupted after latest.pt was committed.
+                _archive_epoch_checkpoint(latest_path, epoch)
             print(
                 json.dumps(
                     {
@@ -567,6 +590,8 @@ def train_model(
                     graph_path,
                     normalization_path,
                 )
+                if save_epoch_checkpoints:
+                    _archive_epoch_checkpoint(latest_path, epoch)
                 if bad_epochs >= config.training.early_stopping_patience:
                     stop_reason = "early_stopping"
                     break
@@ -658,6 +683,10 @@ def _resolve_checkpoint_artifact(checkpoint_path: Path, recorded_path: str | Pat
     companion = checkpoint_path.parent / recorded.name
     if companion.exists():
         return companion
+    if checkpoint_path.parent.name == "checkpoints":
+        companion = checkpoint_path.parent.parent / recorded.name
+        if companion.exists():
+            return companion
     raise FileNotFoundError(
         f"Checkpoint artifact not found at its recorded path ({recorded}) or beside the "
         f"downloaded checkpoint ({companion})"

@@ -1,26 +1,7 @@
-# Hidden-width experiment
+# AOI width comparison
 
-Train widths 64, 128 and 256 in the same 1 km AOI, Fold 1, seed 42. Preserve the
-original MSE objective, LSG-compatible splits, validation depth RMSE checkpoint
-selection, scheduler and early-stopping patience 30. Follow the
-[root README](../../../README.md) for data and environment setup.
+Report Appendix B, Table 8 and Figure 20. Three MSE-only models use widths 64, 128 and 256 with two coarse and three fine message-passing layers. Width changes latent vectors and MLP hidden layers together. The original 1 km AOI, 2,314 target cells, fold 1 and seed 42 remain fixed.
 
-From the project root on Gadi, replace PROJECT_CODE with your allocation:
+The original width-64 model had 165,889 parameters, selected epoch 174, validation RMSE 0.23890 m and 204 total epochs. These are reference outcomes, not hard-coded selection targets. Width 64 was adopted.
 
-```bash
-mkdir -p logs/gadi
-qsub -P PROJECT_CODE -l storage=scratch/PROJECT_CODE -o "$(pwd)/logs/gadi/width64_preflight.log" -v GNNSR_WIDTH=64 experiments/v2/hidden_width/gadi/preflight.pbs
-```
-
-After preflight succeeds, submit training:
-
-```bash
-qsub -P PROJECT_CODE -l storage=scratch/PROJECT_CODE -o "$(pwd)/logs/gadi/width64_train.log" -v GNNSR_WIDTH=64 experiments/v2/hidden_width/gadi/train.pbs
-```
-
-Repeat for widths 128 and 256, changing width and log name. Resume segmented runs
-with GNNSR_WIDTH=64,GNNSR_RESUME=1 and a new log name. Check training_status.json
-first; never start concurrent writers. The runner evaluates best.pt after training
-completes. Keep each complete outputs/v2/hidden_width/width_N/fold_1/seed_42/ folder.
-Calibration needs the width-64 best.pt, normalization JSON and width_evaluation.json.
-Produce comparison plots with the full local project.
+Follow [reproduction stage 1](../../../docs/reproduction.md#1-aoi-width-comparison) and the [Gadi guide](../../../gadi/README.md). The runner evaluates the selected checkpoint when training completes. Keep its `width_evaluation.json`, normalization and checkpoint for loss calibration. Generate comparisons with `python scripts/compare_hidden_widths.py` after all three runs finish.

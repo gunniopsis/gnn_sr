@@ -1,0 +1,102 @@
+[
+  {
+    "name": "c1_f1",
+    "coarse_layers": 1,
+    "fine_layers": 1
+  },
+  {
+    "name": "c1_f2",
+    "coarse_layers": 1,
+    "fine_layers": 2
+  },
+  {
+    "name": "c1_f3",
+    "coarse_layers": 1,
+    "fine_layers": 3
+  },
+  {
+    "name": "c1_f4",
+    "coarse_layers": 1,
+    "fine_layers": 4
+  },
+  {
+    "name": "c1_f6",
+    "coarse_layers": 1,
+    "fine_layers": 6
+  },
+  {
+    "name": "c2_f1",
+    "coarse_layers": 2,
+    "fine_layers": 1
+  },
+  {
+    "name": "c2_f2",
+    "coarse_layers": 2,
+    "fine_layers": 2
+  },
+  {
+    "name": "c2_f3",
+    "coarse_layers": 2,
+    "fine_layers": 3
+  },
+  {
+    "name": "c2_f4",
+    "coarse_layers": 2,
+    "fine_layers": 4
+  },
+  {
+    "name": "c2_f6",
+    "coarse_layers": 2,
+    "fine_layers": 6
+  },
+  {
+    "name": "c3_f1",
+    "coarse_layers": 3,
+    "fine_layers": 1
+  },
+  {
+    "name": "c3_f2",
+    "coarse_layers": 3,
+    "fine_layers": 2
+  },
+  {
+    "name": "c3_f3",
+    "coarse_layers": 3,
+    "fine_layers": 3
+  },
+  {
+    "name": "c3_f4",
+    "coarse_layers": 3,
+    "fine_layers": 4
+  },
+  {
+    "name": "c3_f6",
+    "coarse_layers": 3,
+    "fine_layers": 6
+  },
+  {
+    "name": "c4_f1",
+    "coarse_layers": 4,
+    "fine_layers": 1
+  },
+  {
+    "name": "c4_f2",
+    "coarse_layers": 4,
+    "fine_layers": 2
+  },
+  {
+    "name": "c4_f3",
+    "coarse_layers": 4,
+    "fine_layers": 3
+  },
+  {
+    "name": "c4_f4",
+    "coarse_layers": 4,
+    "fine_layers": 4
+  },
+  {
+    "name": "c4_f6",
+    "coarse_layers": 4,
+    "fine_layers": 6
+  }
+]

@@ -5,10 +5,10 @@
 #PBS -l ngpus=1
 #PBS -l mem=32GB
 #PBS -l jobfs=2GB
-#PBS -l walltime=48:00:00
+#PBS -l walltime=08:00:00
 #PBS -l wd
 #PBS -j oe
-
 set -euo pipefail
-WIDTH_JOB_MODE=train
-source "${PBS_O_WORKDIR:?}/experiments/v2/hidden_width/gadi/job.sh"
+cd "${PBS_O_WORKDIR:?Submit from the repository root}"
+export GNNSR_width=width
+bash gadi/run.sh

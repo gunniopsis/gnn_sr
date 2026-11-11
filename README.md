@@ -1,71 +1,60 @@
 # GNN-SR: Burnett River flood super-resolution
 
-A two-scale graph neural network for fine-resolution flood prediction from coarse
-hydraulic model states. Includes training, evaluation and the width/composite-loss
-experiments. Data and trained models are supplied separately.
+GNN-SR predicts a fine-grid water-surface-elevation correction from the corresponding coarse HEC-RAS state. Two graphs represent the coarse mesh and the 20 m TUFLOW grid. Coarse message passing, directed coarse-to-fine fusion and fine message passing produce one independent prediction per timestep.
 
-| Path | Purpose |
-| --- | --- |
-| src/gnnsr/ | Model, data, graph, loss, training and evaluation code |
-| experiments/v2/ | Experiment instructions, configurations and Gadi jobs |
-| scripts/ | Width and composite-loss experiment runners |
-| examples/ | The 1 km development AOI polygon |
+This repository reproduces the Burnett River experiments in the final report:
 
-## Installation
+| Stage | Experiment | Runs |
+|---|---|---:|
+| 1 | AOI latent/MLP widths 64, 128, 256 | 3 |
+| 2 | AOI composite loss: 8 temperatures x 5 weights, plus fresh MSE control | 41 |
+| 3 | AOI coarse layers {1,2,3,4} x fine layers {1,2,3,4,6} | 20 |
+| 4 | Full-domain training: width 64, 2/2 layers, T=0.3 m, lambda=0.01 | 1 |
 
-Use Python 3.11 or later. In an activated environment, from this repository root:
+Every experiment uses fold 1, seed 42 and the supplied LSG-compatible partitions. Checkpoints are selected by pooled validation depth RMSE. Held-out results are reporting only. The full-domain run trains for at most 100 epochs; the original study selected epoch 95. The adopted 2/2 architecture balances performance and computational cost; 4/4 had the lowest AOI validation RMSE.
 
-```bash
-python -m pip install -e .
-```
+## Start here
 
-On Gadi, use the existing compatible CUDA environment. Alternatively, from an
-internet-enabled copyq session, create an environment using the module used by the jobs:
+1. [Install the environment](docs/environment.md).
+2. [Obtain and arrange the external inputs](docs/data.md).
+3. [Follow the reproduction sequence](docs/reproduction.md), or the [Gadi guide](gadi/README.md).
+4. [Generate the report comparisons and figures](docs/report_outputs.md).
 
 ```bash
-module load pytorch/2.12.0
-python3 -m venv --system-site-packages .venv-gadi
-source .venv-gadi/bin/activate
-python3 -m pip install -e .
+python scripts/verify_repository.py
+python -m pip install -e '.[dev,plot]'
+python -m pytest
+gnnsr --help
 ```
 
-Check module availability at your site. Jobs accept GNNSR_PYTORCH_MODULE and
-GNNSR_VENV overrides and require exactly one visible CUDA GPU.
+Install a suitable PyTorch CUDA build before the editable installation on GPU systems. The scientific tests use synthetic inputs and run on CPU. The full experiment runners require one visible CUDA GPU and the external Burnett data. No experiments are submitted by installation or tests.
 
-## External inputs
-
-Supply the original dataset separately at reference_files/BurnettRV/:
+## Repository layout
 
 ```text
-BurnettRV_event_summary.csv
-Geometry_data/HECRAS_Geometry_data.npz
-Geometry_data/Tuflow_Geometry_data.npz
-HD_model_data/High-fidelity/       # Original uncompressed TUFLOW NPZ events
-HD_model_data/Low-fidelity/        # Original HEC-RAS HDF events
-Train_test_split_data/            # Original Train_test_split_ValidateOnGrp_N.npz
+src/gnnsr/              Model, graph/data handling, losses, training and metrics
+experiments/v2/         Protocols, candidate grids, TOML configs and PBS templates
+  hidden_width/
+  composite_loss/
+  message_passing/
+  full_domain/
+  lsg_full_domain/      Supporting saved-LSG inference for report benchmarks
+scripts/               Experiment runners, verification, analysis and GIS exports
+examples/              Development AOI and full-domain polygons
+tests/                 CPU scientific and reproduction-protocol checks
+docs/                  Data, environment, methodology and reproduction guides
+gadi/                  Shared execution instructions and environment requirements
+SOURCE_MANIFEST.json   Checksums and original-to-public source mapping
 ```
 
-Preserve event order and saved splits. Config paths are relative to each TOML.
+Data belong in `reference_files/BurnettRV/`; generated runs in `outputs/v2/<experiment>/<variant>/fold_1/seed_42/`; rebuildable graphs in `cache/`; figures and tables in `reports/`. These directories are excluded from Git.
 
-## Training and prediction
+## Reproducibility boundaries
 
-Follow the [width experiment](experiments/v2/hidden_width/README.md) and
-[composite-loss experiment](experiments/v2/composite_loss/README.md). These runners
-record the provenance needed for calibration. Both experiments use the supplied AOI.
-Generate held-out predictions and metrics from a matching trained checkpoint:
+This is a fresh source release for new runs. Use a separate checkout and output tree; historical run provenance intentionally rejects modified source. Datasets, saved LSG models, GNN checkpoints and generated results are not bundled. See [data access](docs/data.md). No public download link for the exact supplied dataset or trained GNN weights is asserted here.
 
-```bash
-gnnsr evaluate --config experiments/v2/hidden_width/configs/width_64.toml --checkpoint outputs/v2/hidden_width/width_64/fold_1/seed_42/best.pt
-```
+The calculations used for the reported numerical results are preserved. Read the [method and evaluation protocol](docs/methods.md). Hardware and library changes can change training trajectories; a fresh run must select its own validation-best epoch.
 
-Keep best.pt and its normalization JSON together; supply the matching configuration
-and reference data. Transfer complete run folders separately. The CLI performs
-dataset-based evaluation and prediction export; arbitrary new-input inference has
-no separate CLI command. Use gnnsr --help for preparation and direct-training commands.
+## Citation and attribution
 
-Results belong in outputs/<version>/<experiment>/<variant>/fold_N/seed_N/;
-caches in cache/ and PBS logs in logs/gadi/. Tests, plots, design reports, old baseline
-workflows and release builders remain in the full local project and are omitted here.
-This sharing copy omits the optional LSG and raw HEC-RAS comparison commands.
-Use the original full project to resume historical runs: experiment provenance
-checks include source hashes, which differ for this reduced command interface.
+See [CITATION.cff](CITATION.cff) and [NOTICE.md](NOTICE.md). The supplied hydraulic data and saved LSG models remain external research inputs; their provenance and terms are separate from this code.

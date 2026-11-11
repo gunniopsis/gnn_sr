@@ -89,7 +89,7 @@ def run(name, mode, resume=False, segment_hours=43):
         status = json.loads(status_path.read_text()) if status_path.exists() else {}
         if mode == "evaluate":
             if status.get("state") != "complete":
-                raise RuntimeError("Complete training before explicitly evaluating a finalist")
+                raise RuntimeError("Complete training before explicitly evaluating a completed trial")
             best = directory / "best.pt"
             marker = directory / "loss_evaluation.json"
             if marker.exists():
@@ -112,7 +112,7 @@ def run(name, mode, resume=False, segment_hours=43):
                     "normalization_sha256": sha256(directory / norm_name),
                 },
             )
-            print(f"Finalist evaluation complete: {directory}")
+            print(f"Held-out evaluation complete: {directory}")
             return directory
         if status.get("state") != "complete":
             train_model(config, resume=resume, segment_seconds=segment_hours * 3600)
