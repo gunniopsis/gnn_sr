@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying thesis when using this implementation."
+title: "GNN-SR: Burnett River flood super-resolution"
+type: software
+version: 0.2.0
+repository-code: "https://github.com/gunniopsis/gnn_sr"
+authors:
+  - family-names: Clemson
+    given-names: Roland Thomas
+preferred-citation:
+  type: thesis
+  title: "Graph Neural Network Super-Resolution for Computationally Efficient Flood Modelling"
+  authors:
+    - family-names: Clemson
+      given-names: Roland Thomas
+  year: 2026
+  month: 11
+  institution:
+    name: "The University of Sydney"
+  thesis-type: "Bachelor of Engineering (Civil Engineering)"

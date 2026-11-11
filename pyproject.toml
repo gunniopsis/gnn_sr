@@ -4,25 +4,28 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "burnettrv-gnnsr"
-version = "0.1.0"
-description = "AOI-capable two-scale GNN super-resolution for Burnett River flood maps"
+version = "0.2.0"
+description = "Reproduce AOI tuning and Burnett River full-domain GNN super-resolution"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-  "numpy>=1.24,<3",
-  "pandas>=2.0,<4",
-  "h5py>=3.9,<4",
-  "scipy>=1.10,<2",
-  "shapely>=2.0,<3",
-  "fiona>=1.9,<2",
-  "pyproj>=3.5,<4",
-  "torch>=2.2,<3",
-  "torch-geometric>=2.5,<3",
+  "numpy>=1.24,<3", "pandas>=2.0,<4", "h5py>=3.9,<4", "scipy>=1.10,<2",
+  "shapely>=2.0,<3", "fiona>=1.9,<2", "pyproj>=3.5,<4",
+  "torch>=2.2,<3", "torch-geometric>=2.5,<3",
 ]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
+plot = ["matplotlib>=3.9,<4", "rasterio>=1.3,<2"]
+lsg = ["gpflow>=2.9,<3", "scikit-learn>=1.3,<2"]
 
 [project.scripts]
 gnnsr = "gnnsr.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
 
