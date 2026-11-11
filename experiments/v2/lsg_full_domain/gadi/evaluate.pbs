@@ -1,0 +1,23 @@
+#!/bin/bash
+#PBS -N gnnsr_lsg
+#PBS -q normal
+#PBS -l ncpus=12
+#PBS -l mem=48GB
+#PBS -l jobfs=20GB
+#PBS -l walltime=08:00:00
+#PBS -l wd
+#PBS -j oe
+set -euo pipefail
+cd "${PBS_O_WORKDIR:?}"
+if [[ -n "${GNNSR_PYTORCH_MODULE:-}" ]]; then module load "$GNNSR_PYTORCH_MODULE"; fi
+source "${GNNSR_LSG_VENV:-$PWD/.venv-lsg}/bin/activate"
+export CUDA_VISIBLE_DEVICES=""
+export PYTHONPATH="$PWD/src:$PWD/scripts${PYTHONPATH:+:$PYTHONPATH}"
+export OMP_NUM_THREADS=12 OPENBLAS_NUM_THREADS=12 MKL_NUM_THREADS=12
+export TF_NUM_INTRAOP_THREADS=12 TF_NUM_INTEROP_THREADS=1
+python scripts/verify_repository.py
+python scripts/verify_lsg_full_domain_inputs.py
+args=()
+if [[ "${LSG_RESUME:-0}" == 1 ]]; then args+=(--resume); fi
+python scripts/run_lsg_full_domain.py "${args[@]}"
+
