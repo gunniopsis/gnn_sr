@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -N gnnsr_compare
+#PBS -q normal
+#PBS -l ncpus=12
+#PBS -l mem=64GB
+#PBS -l jobfs=2GB
+#PBS -l walltime=08:00:00
+#PBS -l wd
+#PBS -j oe
+set -euo pipefail
+cd "${PBS_O_WORKDIR:?}"
+if [[ -n "${GNNSR_PYTORCH_MODULE:-}" ]]; then module load "$GNNSR_PYTORCH_MODULE"; fi
+source "${GNNSR_VENV:-$PWD/.venv-gadi}/bin/activate"
+export PYTHONPATH="$PWD/src:$PWD/scripts${PYTHONPATH:+:$PYTHONPATH}"
+export OMP_NUM_THREADS=12
+python scripts/compare_full_domain_lsg.py --verify-deployment
+

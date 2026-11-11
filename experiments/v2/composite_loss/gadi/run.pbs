@@ -1,0 +1,14 @@
+#!/bin/bash
+#PBS -N gnnsr_loss
+#PBS -q gpuvolta
+#PBS -l ncpus=12
+#PBS -l ngpus=1
+#PBS -l mem=32GB
+#PBS -l jobfs=2GB
+#PBS -l walltime=08:00:00
+#PBS -l wd
+#PBS -j oe
+set -euo pipefail
+cd "${PBS_O_WORKDIR:?Submit from the repository root}"
+export GNNSR_loss=loss
+bash gadi/run.sh

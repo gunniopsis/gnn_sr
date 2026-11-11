@@ -1,0 +1,245 @@
+{
+  "fold": 1,
+  "events": [
+    "e1971_real_slmin_1in2",
+    "e1971_real_slmin_1in5",
+    "e1971_real_slmin_1in10",
+    "e1971_real_slmin_1in20",
+    "e1971_real_slmin_1in40",
+    "e1971_real_slmin",
+    "e1971_real_slmin_1in100",
+    "e1971_real_slmin_1in200",
+    "e1971_real_slmin_1in500",
+    "e1971_real_slmax_1in2",
+    "e1971_real_slmax_1in5",
+    "e1971_real_slmax_1in10",
+    "e1971_real_slmax_1in20",
+    "e1971_real_slmax_1in40",
+    "e1971_his",
+    "e1971_real_slmax_1in100",
+    "e1971_real_slmax_1in200",
+    "e1971_real_slmax_1in500"
+  ],
+  "files": [
+    {
+      "path": "reference_files/BurnettRV/BurnettRV_event_summary.csv",
+      "bytes": 4860,
+      "sha256": "203046e522d6854def1152c75add602a986ec51f46c4d2299be8c3cbd89d6128"
+    },
+    {
+      "path": "reference_files/BurnettRV/Geometry_data/HECRAS_Geometry_data.npz",
+      "bytes": 18060114,
+      "sha256": "a849f2521a06596d47c8c728c821122f1715a25e9877fb998603e54fc40b85c0"
+    },
+    {
+      "path": "reference_files/BurnettRV/Geometry_data/Tuflow_Geometry_data.npz",
+      "bytes": 24985872,
+      "sha256": "0ca85c174d1fe77f3be2c32a13891df72d40004697f015eb1cb9c52abac62875"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_his_002.npz",
+      "bytes": 2692149030,
+      "sha256": "2f6ce20af351bb1022cc7b415ba23cfdd0e068b2904ed3d3b623c5eee84ab596"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmax_1in100_002.npz",
+      "bytes": 2692149030,
+      "sha256": "3d0a7515db3486a2490ba1bb19721130b81ed47ce629d36d7f362ec4a865151b"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmax_1in10_002.npz",
+      "bytes": 2692149030,
+      "sha256": "40378d50f6f6114aa71bf53833290fce148d076be45b492629f7a0a58c2a3daa"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmax_1in200_002.npz",
+      "bytes": 2692149030,
+      "sha256": "b621a48e91b521d56513de27b5df5112ad3225ab96cbb2c6f5bddcbc21ab7198"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmax_1in20_002.npz",
+      "bytes": 2692149030,
+      "sha256": "ad55dcde1a2d08ea942a303a5a9a5b24ae378864e414300811e42d84da35fb47"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmax_1in2_002.npz",
+      "bytes": 2692149030,
+      "sha256": "eb6f5548581aab9521d53dd35b1e72da63d3480c39cc780a1ea32193344d187c"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmax_1in40_002.npz",
+      "bytes": 2692149030,
+      "sha256": "539b3eea3f754d611c13e4c93fc20ef2a21317aa5e58930b1e17e51f3c10ae7f"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmax_1in500_002.npz",
+      "bytes": 2692149030,
+      "sha256": "731aab59c681fef325aa3b2dd4bb4efff14494c7b4f9447126fca99bc3c67ca6"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmax_1in5_002.npz",
+      "bytes": 2692149030,
+      "sha256": "df48bb5fb575adb8b66b22daf8ee289ffe68027df003942c6f1da2c23af20301"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmin_002.npz",
+      "bytes": 2692149030,
+      "sha256": "3c76d58a1de22395677c5741bcfcfbbb72ee6d761815059dc8ee1dfa0b3ddcf3"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmin_1in100_002.npz",
+      "bytes": 2692149030,
+      "sha256": "84a16eb815eb841beed2fd46d40fddfec1160da4dcd9e8f7d65a3d54a35988ee"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmin_1in10_002.npz",
+      "bytes": 2692149030,
+      "sha256": "be99d00047e690e5cf51b51890c440f46a6d0d6fdf1d4a1b77efcc8c61460a14"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmin_1in200_002.npz",
+      "bytes": 2692149030,
+      "sha256": "dd265b7270df988d1878a75d902d94e22a59618796cc4c2e29be1979768ebc03"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmin_1in20_002.npz",
+      "bytes": 2692149030,
+      "sha256": "46705d7c5c8228af8a2c1a34e6eeef702cfad94f1469d1e8eaf5cf4b155999bb"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmin_1in2_002.npz",
+      "bytes": 2692149030,
+      "sha256": "d6307e1b5df7ea109c1df0675f8d00e337105280b0d93a45ed8a3fe87296dd3f"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmin_1in40_002.npz",
+      "bytes": 2692149030,
+      "sha256": "468170d0d2bdcddf18167c973dbaa45ee1af24e6a3db7842b7699e21f719fcc5"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmin_1in500_002.npz",
+      "bytes": 2692149030,
+      "sha256": "7f42b6a1378002c090060acfc73b4b5467ef0b0de7a3d1ab6b742b64385c5de0"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/High-fidelity/Paradise_e1971_real_slmin_1in5_002.npz",
+      "bytes": 2692149030,
+      "sha256": "645756d21bfa8569fde696d238504c988a4e20d4e547b200929c76e68c9325a6"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p01.hdf",
+      "bytes": 82786514,
+      "sha256": "bf66ce77dcaee2935529a7473fecdde6be0b09c43de8d11005c2482115529979"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p03.hdf",
+      "bytes": 85705707,
+      "sha256": "56c0ca3482a76b83b7e8b57b1f9f003db977a0395bfe4c9b693d09ec3aede67f"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p04.hdf",
+      "bytes": 84869408,
+      "sha256": "79f7d7fd752f4f35115db59fabc6247bf76d23649d3608e7764bf48e9b3139bc"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p05.hdf",
+      "bytes": 84211188,
+      "sha256": "e7a60b73b6f0ded715dc3c7e19d22a15477c3c2f8085905ee6661203114908ca"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p06.hdf",
+      "bytes": 83055648,
+      "sha256": "d906f94fbf8d66fb35c559771ebcf7b4786bdb15e2939d756b60bdbc0f8c3499"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p07.hdf",
+      "bytes": 82441563,
+      "sha256": "b7f35395b2154f2c876751da5ec9ba7e8c64048953bf01d6729e09fc290089c3"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p08.hdf",
+      "bytes": 81522278,
+      "sha256": "85f7b88d73964a8c79b469777b590e36eb2340efb56d639db82ff7af162b6b45"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p09.hdf",
+      "bytes": 80594761,
+      "sha256": "7f1b9dd24e779bf04ee4edadd266b7e00ad119abe1298fbaf6d9cfdf8f660091"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p10.hdf",
+      "bytes": 78773599,
+      "sha256": "5245a55ce4b8e373b0751b4b2215519f23539b56aedcc54c1adf40877573d1f8"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p11.hdf",
+      "bytes": 82732781,
+      "sha256": "343511e4b225071895a1583205f617a6cf47aa9edaccf7b260221883de916412"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p12.hdf",
+      "bytes": 78737972,
+      "sha256": "b7e80a1b141ca893780c905e5254a8edc0ef3459880006e4e595d94fa0ee3108"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p13.hdf",
+      "bytes": 80424004,
+      "sha256": "290f14ab0a805ed7ac95475a860678ee5bccb386d30e73d857a105ebdcf8cb89"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p14.hdf",
+      "bytes": 81526581,
+      "sha256": "86c40b50c7d960115f09edcb02a42b57f79ac11a13a4935abd3a89c76a442127"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p15.hdf",
+      "bytes": 82397126,
+      "sha256": "6f68a8c9e20fc8346ad89b67a01facefcd6d815a9a46d0aed4f91c2249e874fa"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p16.hdf",
+      "bytes": 83038897,
+      "sha256": "097131960f0385629006fb69856b32e48c2f6c5f67cc38a8fb0523e8103c4031"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p17.hdf",
+      "bytes": 84198419,
+      "sha256": "32645562afa6ee8e7836ccdb22f5068b7e12656f9277dcd3ef3b057c339b75d9"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p18.hdf",
+      "bytes": 84859607,
+      "sha256": "6c6d745b2e9e0a7f042d19395cc38b8029ed67421ca519dea12cfa84f9853ff6"
+    },
+    {
+      "path": "reference_files/BurnettRV/HD_model_data/Low-fidelity/BurnettRV_LFmodelB.p19.hdf",
+      "bytes": 85697516,
+      "sha256": "582ce830c28267207bf30a061130bd51202ab83f5e7ebf40619b1d8437eca673"
+    },
+    {
+      "path": "reference_files/BurnettRV/HF_EOF_analysis/Categories_HFdata_ValidateOnGrp_1.npz",
+      "bytes": 9545728,
+      "sha256": "550632fd8ede46abeee577caf5344aec09391a3e1aa5bda3725e839f633373ea"
+    },
+    {
+      "path": "reference_files/BurnettRV/HF_EOF_analysis/EOFanalysis_HFdata_EXT_ValidateOnGrp_1.npz",
+      "bytes": 217302592,
+      "sha256": "380a2c08e511b3a93b8021e85f3f06e44c8ee13d01889f553a64991b411752f7"
+    },
+    {
+      "path": "reference_files/BurnettRV/HF_EOF_analysis/EOFanalysis_HFdata_WSE_ValidateOnGrp_1.npz",
+      "bytes": 172416304,
+      "sha256": "ae7542b46b020f09fdf623995b37264bf030e99042b54d09a9b401f488ced3e4"
+    },
+    {
+      "path": "reference_files/BurnettRV/LSG_modeldata/LSG_Ext_ValidateOnGrp_1.npz",
+      "bytes": 4996318,
+      "sha256": "584d4cc3a5448b7698a18540b74b9bd7b5bd28352e6b51f7d9ab6e076fe20ba9"
+    },
+    {
+      "path": "reference_files/BurnettRV/LSG_modeldata/LSG_WSE_ValidateOnGrp_1.npz",
+      "bytes": 2773798,
+      "sha256": "72e04a5f0ea077ea6440bb8314ae04c55124794fdeff331a95c37841ba204bc2"
+    }
+  ]
+}

@@ -153,5 +153,55 @@
     "name": "t0p3_l10",
     "temperature_m": 0.3,
     "extent_weight": 10.0
+  },
+  {
+    "name": "t0p5_l0p001",
+    "temperature_m": 0.5,
+    "extent_weight": 0.001
+  },
+  {
+    "name": "t0p5_l0p01",
+    "temperature_m": 0.5,
+    "extent_weight": 0.01
+  },
+  {
+    "name": "t0p5_l0p1",
+    "temperature_m": 0.5,
+    "extent_weight": 0.1
+  },
+  {
+    "name": "t0p5_l1",
+    "temperature_m": 0.5,
+    "extent_weight": 1.0
+  },
+  {
+    "name": "t0p5_l10",
+    "temperature_m": 0.5,
+    "extent_weight": 10.0
+  },
+  {
+    "name": "t1_l0p001",
+    "temperature_m": 1.0,
+    "extent_weight": 0.001
+  },
+  {
+    "name": "t1_l0p01",
+    "temperature_m": 1.0,
+    "extent_weight": 0.01
+  },
+  {
+    "name": "t1_l0p1",
+    "temperature_m": 1.0,
+    "extent_weight": 0.1
+  },
+  {
+    "name": "t1_l1",
+    "temperature_m": 1.0,
+    "extent_weight": 1.0
+  },
+  {
+    "name": "t1_l10",
+    "temperature_m": 1.0,
+    "extent_weight": 10.0
   }
 ]
